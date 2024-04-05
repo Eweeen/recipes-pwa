@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("sw.js");
+
+        navigator.serviceWorker.ready.then((registration) => {
+          if ("periodicsync" in registration) {
+            registration.periodicsync.getTags().then((tags) => {
+              if (!tags.includes("recipes")) {
+                registration.periodicsync
+                  .register("recipes", {
+                    minInterval: 24 * 60 * 60 * 1000,
+                  })
+                  .then(() => {
+                    console.log("Periodic sync registered!");
+                  })
+                  .catch((err) => {
+                    console.error("Periodic sync failed: ", err);
+                  });
+              }
+            });
+          }
+        });
+      }
+    </script>
+    <title>Recipes PWA</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="main.js"></script>
+  </head>
+  <body>
+    <h1>Recipes PWA</h1>
+
+    <div id="recipes"></div>
+  </body>
+</html>
