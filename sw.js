@@ -1,15 +1,18 @@
-const version = "v1";
+const version = "v3";
 const cacheName = `myapp-${version}`;
-const fileToCache = ["/index.html", "style.css", "icons/icon-512x512.png"];
+const fileToCache = [
+  "/index.html",
+  "/main.js",
+  "style.css",
+  "icons/icon-512x512.png",
+  "icons/bookmark-regular.svg",
+  "icons/bookmark-solid.svg",
+];
 
-self.addEventListener("install", function (e) {
+self.addEventListener("install", (e) => {
   console.log("[SW] Installed");
   e.waitUntil(
-    (async () => {
-      const cache = await caches.open(cacheName);
-      console.log("[SW] Caching files");
-      await cache.addAll(fileToCache);
-    })()
+    caches.open(cacheName).then((cache) => cache.addAll(fileToCache))
   );
 });
 
