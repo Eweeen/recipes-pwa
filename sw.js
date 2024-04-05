@@ -1,4 +1,4 @@
-const version = "v3";
+const version = "v4";
 const cacheName = `myapp-${version}`;
 const fileToCache = [
   "/index.html",
