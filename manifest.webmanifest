@@ -5,7 +5,7 @@
   "icons": [
     {
       "sizes": "512x512",
-      "src": "/icons/icon-512x512.png",
+      "src": "/recipes-pwa/icons/icon-512x512.png",
       "type": "image/png"
     }
   ],
