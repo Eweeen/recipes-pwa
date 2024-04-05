@@ -9,7 +9,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/",
+  "start_url": "/recipes-pwa",
   "display": "fullscreen",
   "theme_color": "#bbb",
   "background_color": "#777"

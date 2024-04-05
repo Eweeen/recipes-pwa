@@ -4,6 +4,9 @@ const options = {
   headers: { "Content-Type": "application/json" },
 };
 const apiKey = "8c3a43efa547436e8107e02f7266b1b6";
+const location =
+  document.location.origin +
+  document.location.pathname.split("/").slice(0, -1).join("/");
 
 /**
  * Fetch recipes from the Spoonacular API.
@@ -38,7 +41,7 @@ function buildRecipes(recipes) {
     recipeElement.innerHTML = `
       <header>
         <h3>${recipe.title}</h3>
-        <img data-id="${recipe.id}" src="/icons/bookmark-regular.svg" alt="bookmark" class="bookmark" loading="lazy" />
+        <img data-id="${recipe.id}" src="${location}/icons/bookmark-regular.svg" alt="bookmark" class="bookmark" loading="lazy" />
       </header>
       <img src="${recipe.image}" alt="${recipe.title}" />
     `;
@@ -112,11 +115,11 @@ async function handleBookmarkClick(e) {
   const isBookmarked = bookmark.src.includes("bookmark-solid.svg");
 
   if (isBookmarked) {
-    bookmark.src = "/icons/bookmark-regular.svg";
+    bookmark.src = `${location}/icons/bookmark-regular.svg`;
     return;
   }
 
-  bookmark.src = "/icons/bookmark-solid.svg";
+  bookmark.src = `${location}/icons/bookmark-solid.svg`;
 }
 
 window.addEventListener("load", async () => {
