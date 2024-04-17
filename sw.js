@@ -1,4 +1,4 @@
-const version = "v5";
+const version = "v6";
 const cacheName = `myapp-${version}`;
 
 const location =
