@@ -1,7 +1,9 @@
 {
+  "id": "recipes-pwa",
   "name": "Recipes PWA",
   "short_name": "RecipesPWA",
   "description": "PWA for recipes",
+  "lang": "en",
   "icons": [
     {
       "sizes": "512x512",
@@ -10,6 +12,7 @@
     }
   ],
   "start_url": "/recipes-pwa",
+  "dir": "auto",
   "display": "fullscreen",
   "theme_color": "#bbb",
   "background_color": "#1c2431",
