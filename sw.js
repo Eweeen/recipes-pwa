@@ -1,17 +1,13 @@
-const version = "v6";
+const version = "v7";
 const cacheName = `myapp-${version}`;
-
-const location =
-  document.location.origin +
-  document.location.pathname.split("/").slice(0, -1).join("/");
 
 const filesToCache = [
   "/index.html",
   "/main.js",
   "/style.css",
-  `${location}/icons/icon-512x512.png`,
-  `${location}/icons/bookmark-regular.svg`,
-  `${location}/icons/bookmark-solid.svg`,
+  "/recipes-pwa/icons/icon-512x512.png",
+  "/recipes-pwa/icons/bookmark-regular.svg",
+  "/recipes-pwa/icons/bookmark-solid.svg",
 ];
 
 self.addEventListener("install", (e) => {
