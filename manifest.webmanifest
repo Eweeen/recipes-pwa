@@ -12,5 +12,7 @@
   "start_url": "/recipes-pwa",
   "display": "fullscreen",
   "theme_color": "#bbb",
-  "background_color": "#777"
+  "background_color": "#777",
+  "orientation": "portrait-primary",
+  "categories": ["food", "recipes", "cooking", "pwa"]
 }
