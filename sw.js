@@ -1,18 +1,23 @@
 const version = "v5";
 const cacheName = `myapp-${version}`;
-const fileToCache = [
+
+const location =
+  document.location.origin +
+  document.location.pathname.split("/").slice(0, -1).join("/");
+
+const filesToCache = [
   "/index.html",
   "/main.js",
-  "style.css",
-  "icons/icon-512x512.png",
-  "icons/bookmark-regular.svg",
-  "icons/bookmark-solid.svg",
+  "/style.css",
+  `${location}/icons/icon-512x512.png`,
+  `${location}/icons/bookmark-regular.svg`,
+  `${location}/icons/bookmark-solid.svg`,
 ];
 
 self.addEventListener("install", (e) => {
   console.log("[SW] Installed");
   e.waitUntil(
-    caches.open(cacheName).then((cache) => cache.addAll(fileToCache))
+    caches.open(cacheName).then((cache) => cache.addAll(filesToCache))
   );
 });
 
