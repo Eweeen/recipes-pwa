@@ -5,9 +5,9 @@ const filesToCache = [
   "/recipes-pwa/index.html",
   "/recipes-pwa/main.js",
   "/recipes-pwa/style.css",
-  // "/recipes-pwa/icons/icon-512x512.png",
-  // "/recipes-pwa/icons/bookmark-regular.svg",
-  // "/recipes-pwa/icons/bookmark-solid.svg",
+  "/recipes-pwa/icons/icon-512x512.png",
+  "/recipes-pwa/icons/bookmark-regular.svg",
+  "/recipes-pwa/icons/bookmark-solid.svg",
 ];
 
 self.addEventListener("install", (e) => {
