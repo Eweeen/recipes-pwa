@@ -4,10 +4,10 @@ const cacheName = `myapp-${version}`;
 const filesToCache = [
   "/index.html",
   "/main.js",
-  "/style.css",
-  "/recipes-pwa/icons/icon-512x512.png",
-  "/recipes-pwa/icons/bookmark-regular.svg",
-  "/recipes-pwa/icons/bookmark-solid.svg",
+  // "/style.css",
+  // "/recipes-pwa/icons/icon-512x512.png",
+  // "/recipes-pwa/icons/bookmark-regular.svg",
+  // "/recipes-pwa/icons/bookmark-solid.svg",
 ];
 
 self.addEventListener("install", (e) => {
