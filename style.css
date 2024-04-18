@@ -11,6 +11,26 @@ h1,h2,h3 {
     margin: 0;
 }
 
+#connexion-indicator {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #222;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    color: white;
+    display: none;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
 #pagination {
     margin-bottom: 12px;
     display: flex;
