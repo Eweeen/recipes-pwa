@@ -190,6 +190,11 @@ async function buildFavorites() {
 
   const recipes = await getAll();
 
+  if (recipes.length === 0) {
+    container.innerHTML = '<p style="text-align: center">No favorite recipes found.</p>';
+    return;
+  }
+
   for (const recipe of recipes) {
     buildRecipeCards(container, recipe, `${location}/icons/bookmark-solid.svg`);
   }
