@@ -1,4 +1,4 @@
-const version = "v11";
+const version = "v12";
 const cacheName = `myapp-${version}`;
 
 const filesToCache = [

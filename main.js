@@ -78,7 +78,7 @@ async function addRecipe(recipe) {
     transaction.onerror = reject;
     const store = transaction.objectStore(storeName);
     const req = store.add({
-      recipeID: recipe.id,
+      id: recipe.id,
       title: recipe.title,
       image: recipe.image,
     });
