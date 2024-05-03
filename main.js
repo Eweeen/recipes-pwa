@@ -283,8 +283,9 @@ function buildRecipeCards(container, recipe, src) {
 function handleConnection() {
   const status = document.getElementById("connexion-indicator");
   if (!status) return;
-
+  
   if (!navigator.onLine) status.style.display = "block";
+  else status.style.display = "none";
 }
 
 window.addEventListener("load", async () => {
