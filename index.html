@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
       if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register(
-          `${
-            document.location.origin +
-            document.location.pathname.split("/").slice(0, -1).join("/")
-          }/sw.js`
-        );
+        navigator.serviceWorker.register(`${document.location.origin + document.location.pathname.split("/").slice(0, -1).join("/")}/sw.js`);
       }
     </script>
     <title>Recipes PWA</title>

@@ -1,8 +1,10 @@
-const version = "v12";
+const version = "v13";
 const cacheName = `myapp-${version}`;
 
 const filesToCache = [
   "/recipes-pwa/index.html",
+  "/recipes-pwa/favorites.html",
+  "/recipes-pwa/manifest.webmanifest",
   "/recipes-pwa/main.js",
   "/recipes-pwa/style.css",
   "/recipes-pwa/icons/icon-512x512.png",

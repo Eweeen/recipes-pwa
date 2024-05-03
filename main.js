@@ -14,9 +14,7 @@ const storeName = "favorites";
 const storeKeyPath = "id";
 
 // Utils
-const location =
-  document.location.origin +
-  document.location.pathname.split("/").slice(0, -1).join("/");
+const location = document.location.origin + document.location.pathname.split("/").slice(0, -1).join("/");
 let offset = 0;
 
 /**
@@ -29,8 +27,8 @@ async function openDB() {
   return await new Promise((resolve, reject) => {
     const req = window.indexedDB.open(dbName, dbVersion);
 
-    req.onupgradeneeded = (ev) => {
-      const db = ev.target.result;
+    req.onupgradeneeded = (e) => {
+      const db = e.target.result;
 
       if ([...db.objectStoreNames].includes(storeName)) {
         db.deleteObjectStore(storeName);
@@ -141,7 +139,7 @@ async function buildRecipes(recipes) {
 
   // Build the recipes.
   for (const recipe of recipes) {
-    const isBookmarked = bookmarks.find((bookmark) => bookmark.recipeID === recipe.id);
+    const isBookmarked = bookmarks.find((bookmark) => bookmark.id === recipe.id);
     const src = getIcon(!!isBookmarked);
 
     buildRecipeCards(recipesContainer, recipe, src);
@@ -198,6 +196,12 @@ async function buildFavorites() {
   for (const recipe of recipes) {
     buildRecipeCards(container, recipe, `${location}/icons/bookmark-solid.svg`);
   }
+
+  // Add event listeners to the bookmark icons.
+  const icons = document.querySelectorAll(".bookmark");
+  icons.forEach((bookmark) => {
+    bookmark.addEventListener("click", handleBookmarkClick);
+  });
 }
 
 /**
@@ -280,6 +284,11 @@ function buildRecipeCards(container, recipe, src) {
   container.appendChild(recipeElement);
 }
 
+/** 
+ * Handle the connection status.
+ * 
+ * @returns {void}
+*/
 function handleConnection() {
   const status = document.getElementById("connexion-indicator");
   if (!status) return;
@@ -288,6 +297,11 @@ function handleConnection() {
   else status.style.display = "none";
 }
 
+/**
+ * Initialize the service worker.
+ * 
+ * @returns {void}
+ */
 window.addEventListener("load", async () => {
   const recipes = await fetchRecipes();
 
